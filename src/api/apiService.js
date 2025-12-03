@@ -8,9 +8,11 @@ const request = async (endpoint, params = "") => {
 
     const response = await fetch(url);
 
-    if (!res.ok) throw new Error("Errore nella richiesta TMDB");
+    if (!response.ok) throw new Error("Errore nella richiesta TMDB");
 
-    const result = await res.json();
+    const result = await response.json();
+
+    return result;
   } catch (error) {
     console.error("TMDB Error:", error);
   }
