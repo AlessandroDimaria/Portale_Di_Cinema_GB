@@ -6,8 +6,8 @@ export default function Sidebar() {
   return (
     <aside className="sidebar">
       <ul className="sidebar-menu">
-        <li className="sidebar-item">🏠 Homepage</li>
-        <li className="sidebar-item">📂 Categories</li>
+        <li className="sidebar-item">🏠</li>
+        <li className="sidebar-item">📂</li>
         <li className="sidebar-item">
           <button
             className="sidebar-search-btn"
