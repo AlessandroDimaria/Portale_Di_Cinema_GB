@@ -15,16 +15,19 @@ body {
   min-height: 100vh;
 }
 
-/* NAVBAR */
+/* NAVBAR */ 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 40px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+  padding: 20px 40px; 
+  height: 80px;        
+  background: #141414;
   position: sticky;
   top: 0;
   z-index: 10;
+  width: 100%;        
+  box-sizing: border-box;
 }
 
 .navbar-logo {
