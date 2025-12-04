@@ -6,7 +6,7 @@
 }
 
 .sidebar {
-  width: 220px;
+  width: 80px;
   background: #141414;
   color: #fff;
   padding: 20px 10px;
@@ -54,6 +54,7 @@
   border: none;
   background: #222;
   color: white;
+  min-width: 120px;
 }
 
 .sidebar-search-submit {
@@ -63,5 +64,6 @@
   border-radius: 4px;
   cursor: pointer;
   color: white;
+  min-width: 120px;
 }
 
