@@ -6,7 +6,7 @@ const MovieDetails = ({ movie, onBack }) => {
   return (
     <div className="details">
       <button className="back-button" onClick={onBack}>
-        ⬅ Torna indietro
+        ⬅ Indietro
       </button>
 
       <img
@@ -18,7 +18,11 @@ const MovieDetails = ({ movie, onBack }) => {
         <h1>{movie.title}</h1>
 
         <button
-          className="favorite-button"
+          className={
+            isFavorite(movie.id)
+              ? "favorite-button favorite-button--active"
+              : "favorite-button"
+          }
           onClick={() => toggleFavorite(movie)}
         >
           {isFavorite(movie.id)
