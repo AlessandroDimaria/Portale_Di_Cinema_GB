@@ -1,29 +1,40 @@
-import { useMoviesApi } from "../../context/MoviesContext";
+import { useFavorites } from "../../context/FavoritesContext";
 
-const MovieDetails = () => {
-  const { selectedMovie, detailsLoading } = useMoviesApi();
-
-  if (detailsLoading) return <p className="status-text">Caricamento…</p>;
-  if (!selectedMovie) return null;
+const MovieDetails = ({ movie, onBack }) => {
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   return (
     <div className="details">
+      <button className="back-button" onClick={onBack}>
+        ⬅ Torna indietro
+      </button>
+
       <img
         className="details-poster"
-        src={import.meta.env.VITE_IMAGE_BASE_URL + selectedMovie.poster_path}
+        src={import.meta.env.VITE_IMAGE_BASE_URL + movie.poster_path}
       />
 
       <div className="details-content">
-        <h1>{selectedMovie.title}</h1>
-        <p>{selectedMovie.overview}</p>
+        <h1>{movie.title}</h1>
+
+        <button
+          className="favorite-button"
+          onClick={() => toggleFavorite(movie)}
+        >
+          {isFavorite(movie.id)
+            ? "Rimuovi dai preferiti"
+            : "Aggiungi ai preferiti"}
+        </button>
 
         <p className="details-meta">
-          Rating: {selectedMovie.vote_average} • {selectedMovie.release_date}
+          Rating: {movie.vote_average} • {movie.release_date}
         </p>
 
         <p className="details-genres">
-          {selectedMovie.genres?.map((g) => g.name).join(", ")}
+          {movie.genres?.map((g) => g.name).join(", ")}
         </p>
+
+        <p>{movie.overview}</p>
       </div>
     </div>
   );
