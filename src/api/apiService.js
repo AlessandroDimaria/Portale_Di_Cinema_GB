@@ -1,90 +1,66 @@
-const BASE_URL = "https://api.themoviedb.org/3";
-
-const request = async (endpoint, params = "") => {
+const request = async (url) => {
   try {
-    const url = `${BASE_URL}${endpoint}?api_key=${
-      import.meta.env.API_KEY
-    }${params}`;
+    const res = await fetch(url);
 
-    const response = await fetch(url);
+    if (!res.ok) {
+      throw new Error("Errore nella richiesta TMDB");
+    }
 
-    if (!response.ok) throw new Error("Errore nella richiesta TMDB");
-
-    const result = await response.json();
-
-    return result;
+    const data = await res.json();
+    return data;
   } catch (error) {
     console.error("TMDB Error:", error);
-  }
-};
-
-const predefinedCollections = [
-  { id: 119, name: "The Lord of the Rings" },
-  { id: 121938, name: "The Hobbit" },
-  { id: 10, name: "Star Wars" },
-  { id: 1241, name: "Harry Potter" },
-  { id: 9485, name: "Fast & Furious" },
-  { id: 86311, name: "James Bond" },
-  { id: 87359, name: "Batman Collection" },
-];
-
-const getCollections = async () => {
-  try {
-    const allCollections = await Promise.all(
-      predefinedCollections.map(async (col) => {
-        const data = await request(`/collection/${col.id}`);
-        return {
-          ...data,
-          label: col.name,
-        };
-      })
-    );
-
-    return allCollections;
-  } catch (error) {
-    console.error("Errore fetching collections:", error);
     throw error;
   }
 };
 
 export const apiService = {
   getPopular: async () => {
-    const data = await request("/movie/popular");
+    const url = `${import.meta.env.VITE_BASE_URL}/movie/popular?api_key=${
+      import.meta.env.VITE_API_KEY
+    }`;
+    const data = await request(url);
     return data;
   },
 
   getTopRated: async () => {
-    const data = await request("/movie/top_rated");
+    const url = `${import.meta.env.VITE_BASE_URL}/movie/top_rated?api_key=${
+      import.meta.env.VITE_API_KEY
+    }`;
+    const data = await request(url);
     return data;
   },
 
   getTrending: async () => {
-    const data = await request("/trending/movie/week");
+    const url = `${import.meta.env.VITE_BASE_URL}/trending/movie/week?api_key=${
+      import.meta.env.VITE_API_KEY
+    }`;
+    const data = await request(url);
     return data;
   },
 
   getUpcoming: async () => {
-    const data = await request("/movie/upcoming");
+    const url = `${import.meta.env.VITE_BASE_URL}/movie/upcoming?api_key=${
+      import.meta.env.VITE_API_KEY
+    }`;
+    const data = await request(url);
     return data;
   },
 
   searchMovies: async (query) => {
-    const data = await request(
-      "/search/movie",
-      `&query=${encodeURIComponent(query)}`
-    );
+    const encoded = encodeURIComponent(query);
+    const url = `${import.meta.env.VITE_BASE_URL}/search/movie?api_key=${
+      import.meta.env.VITE_API_KEY
+    }&query=${encoded}`;
+    const data = await request(url);
     return data;
   },
 
   getMovieDetails: async (id) => {
-    const data = await request(`/movie/${id}`);
+    const url = `${import.meta.env.VITE_BASE_URL}/movie/${id}?api_key=${
+      import.meta.env.VITE_API_KEY
+    }&append_to_response=credits,videos`;
+    const data = await request(url);
     return data;
   },
-
-  getMovieCredits: async (id) => {
-    const data = await request(`/movie/${id}/credits`);
-    return data;
-  },
-
-  getCollections,
 };
