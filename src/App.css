@@ -1,0 +1,240 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #141414;
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* NAVBAR */ 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px; 
+  height: 80px;        
+  background: #141414;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;        
+  box-sizing: border-box;
+}
+
+.navbar-logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #e50914;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-link {
+  background: transparent;
+  border: none;
+  color: #ccc;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.navbar-link:hover,
+.navbar-link--active {
+  color: white;
+  font-weight: bold;
+}
+
+/* MAIN */
+.main-content {
+  padding: 30px 40px;
+}
+
+/* SECTION */
+.section,
+.carousel-section {
+  margin-bottom: 40px;
+}
+
+.section-title,
+.carousel-title {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+/* SWIPER CAROUSEL */
+.movie-swiper {
+  padding: 15px 0 35px;
+}
+
+/* frecce più grandi stile Netflix */
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  transition: 0.25s;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px !important;
+}
+
+/* Spazi tra card */
+.swiper-slide {
+  margin-right: 24px !important;
+}
+
+.swiper-wrapper {
+  padding-right: 40px !important;
+}
+
+/* MOVIE CARD - landscape Netflix premium */
+.movie-card {
+  width: 280px;
+  height: 160px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: scale(1.28);
+  z-index: 30;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+}
+
+.movie-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* SEARCH */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 4px;
+  border: none;
+  background: #222;
+  color: white;
+}
+
+.search-button {
+  padding: 12px 20px;
+  background: #e50914;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.search-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* DETAILS */
+.details {
+  display: flex;
+  gap: 30px;
+}
+
+.details-poster {
+  width: 350px;
+  border-radius: 10px;
+}
+
+.details-content {
+  max-width: 600px;
+  padding: 5px;
+}
+
+.details-meta {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  padding: 5px;
+}
+
+.details-genres {
+  margin-top: 8px;
+  opacity: 0.7;
+  padding: 5px;
+}
+
+.back-button {
+  width: 90px; /* lato del quadrato */
+  height: 40px;
+  margin: 5px;
+  border: 1px solid #444;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* centra il contenuto */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+.favorite-button {
+  background-color: white;
+  color: black;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+/* quando È nei preferiti */
+.favorite-button--active {
+  background-color: black;
+  color: white;
+}
+
+/* STATUS */
+.status-text {
+  opacity: 0.7;
+  margin: 20px 0;
+}
+
+.status-text--error {
+  color: #ff6b6b;
+}
+
+.highlight {
+  color: #e50914;
+}
