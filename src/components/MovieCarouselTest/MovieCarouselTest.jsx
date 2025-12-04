@@ -15,8 +15,8 @@ const MovieCarouselTest = ({ title, movies = [], onSelectMovie }) => {
       <Swiper
         modules={[Navigation]}
         navigation
-        slidesPerView={6}
-        spaceBetween={20}
+        slidesPerView={9}
+        spaceBetween={10}
         className="movie-swiper"
       >
         {movies.map((movie) => (
