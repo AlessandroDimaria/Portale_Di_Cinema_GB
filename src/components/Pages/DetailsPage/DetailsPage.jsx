@@ -1,15 +1,20 @@
+import { useEffect, useState } from "react";
+import { apiService } from "../../../api/apiService";
 import MovieDetails from "../../MovieDetails/MovieDetails";
 
-const DetailsPage = ({ onBack }) => {
-  return (
-    <div className="main-content">
-      <button className="back-button" onClick={onBack}>
-        ⟵ Indietro
-      </button>
+export default function DetailsPage({ movieId, onBack }) {
+  const [movie, setMovie] = useState(null);
 
-      <MovieDetails />
-    </div>
-  );
-};
+  useEffect(() => {
+    const load = async () => {
+      const data = await apiService.getMovieDetails(movieId);
+      setMovie(data);
+    };
 
-export default DetailsPage;
+    load();
+  }, [movieId]);
+
+  if (!movie) return <p>Caricamento…</p>;
+
+  return <MovieDetails movie={movie} onBack={onBack} />;
+}

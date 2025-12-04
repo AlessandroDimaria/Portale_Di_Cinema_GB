@@ -1,20 +1,27 @@
-const Navbar = ({ currentPage, onChangePage }) => {
+import { useSearch } from "../../context/SearchContext";
+
+const Navbar = ({ onNavigate }) => {
+  const { query, search } = useSearch();
+
   return (
     <header className="navbar">
       <div className="navbar-logo">Absolute Cinema</div>
 
+      <input
+        className="navbar-search"
+        type="text"
+        placeholder="Cerca..."
+        value={query}
+        onChange={(e) => search(e.target.value)}
+      />
+
       <nav className="navbar-links">
-        {["home", "search", "favorites"].map((page) => (
-          <button
-            key={page}
-            className={`navbar-link ${
-              currentPage === page ? "navbar-link--active" : ""
-            }`}
-            onClick={() => onChangePage(page)}
-          >
-            {page.toUpperCase()}
-          </button>
-        ))}
+        <button onClick={() => onNavigate("home")} className="navbar-link">
+          HOME
+        </button>
+        <button onClick={() => onNavigate("favorites")} className="navbar-link">
+          FAVORITES
+        </button>
       </nav>
     </header>
   );

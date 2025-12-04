@@ -1,12 +1,12 @@
+import { useFavorites } from "../../../context/FavoritesContext";
 import MovieCardTest from "../../MovieCardTest/MovieCardTest";
-import { useMoviesApi } from "../../../context/MoviesContext";
 
 const FavoritesPage = ({ onSelectMovie }) => {
-  const { favorites } = useMoviesApi();
+  const { favorites } = useFavorites();
 
   return (
     <div className="main-content">
-      <h2 className="section-title">I tuoi preferiti</h2>
+      <h2>I tuoi film preferiti</h2>
 
       <div className="search-results-grid">
         {favorites.map((movie) => (
@@ -17,10 +17,6 @@ const FavoritesPage = ({ onSelectMovie }) => {
           />
         ))}
       </div>
-
-      {favorites.length === 0 && (
-        <p className="status-text">Non hai ancora salvato nessun film.</p>
-      )}
     </div>
   );
 };
