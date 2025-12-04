@@ -13,7 +13,7 @@ export default function Sidebar() {
             className="sidebar-search-btn"
             onClick={() => setShowSearch(!showSearch)}
           >
-            🔍 Search
+            🔍
           </button>
           {showSearch && (
             <div className="sidebar-search-dropdown">
