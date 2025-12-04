@@ -15,16 +15,19 @@ body {
   min-height: 100vh;
 }
 
-/* NAVBAR */
+/* NAVBAR */ 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 40px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+  padding: 20px 40px; 
+  height: 80px;        
+  background: #141414;
   position: sticky;
   top: 0;
   z-index: 10;
+  width: 100%;        
+  box-sizing: border-box;
 }
 
 .navbar-logo {
@@ -173,27 +176,53 @@ body {
 
 .details-content {
   max-width: 600px;
+  padding: 5px;
 }
 
 .details-meta {
   margin-top: 14px;
   font-size: 0.9rem;
   opacity: 0.7;
+  padding: 5px;
 }
 
 .details-genres {
   margin-top: 8px;
   opacity: 0.7;
+  padding: 5px;
 }
 
 .back-button {
-  background: transparent;
+  width: 90px; /* lato del quadrato */
+  height: 40px;
+  margin: 5px;
   border: 1px solid #444;
-  color: white;
-  padding: 6px 14px;
-  margin-bottom: 20px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* centra il contenuto */
   border-radius: 4px;
   cursor: pointer;
+  font-size: 12px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+.favorite-button {
+  background-color: white;
+  color: black;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+/* quando È nei preferiti */
+.favorite-button--active {
+  background-color: black;
+  color: white;
 }
 
 /* STATUS */
