@@ -58,10 +58,10 @@ body {
   transition: 0.2s;
 }
 
-.navbar-link:hover,
-.navbar-link--active {
-  color: white;
+.navbar-link.active {
+  border-bottom: 2px solid red; /* sottolineatura */
   font-weight: bold;
+  color: white;
 }
 
 /* SEARCH COMPATTA AL CENTRO */
