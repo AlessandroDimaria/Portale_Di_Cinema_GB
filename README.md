@@ -1,7 +1,6 @@
 # 🎬 Movie App
 
 Una Single Page Application (SPA) sviluppata in **React** che utilizza le API di **TheMovieDB** per permettere agli utenti di cercare, visualizzare dettagli e salvare film preferiti.  
-Il progetto è stato realizzato come esercizio di gruppo per consolidare competenze su React, gestione dello stato e integrazione con API esterne.
 
 ---
 
