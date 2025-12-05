@@ -1,3 +1,5 @@
+// src/components/MovieCarouselTest/MovieCarouselTest.jsx
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
@@ -5,7 +7,12 @@ import MovieCardTest from "../MovieCardTest/MovieCardTest";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const MovieCarouselTest = ({ title, movies = [], onSelectMovie }) => {
+const MovieCarouselTest = ({
+  title,
+  movies = [],
+  onSelectMovie, // DETAILS
+  onSelectTrailer, // TRAILER
+}) => {
   if (!movies) return null;
 
   return (
@@ -23,7 +30,8 @@ const MovieCarouselTest = ({ title, movies = [], onSelectMovie }) => {
           <SwiperSlide key={movie.id}>
             <MovieCardTest
               movie={movie}
-              onClick={() => onSelectMovie(movie.id)}
+              onShowTrailer={onSelectTrailer}
+              onShowDetails={onSelectMovie}
             />
           </SwiperSlide>
         ))}

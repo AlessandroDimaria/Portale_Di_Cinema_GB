@@ -3,7 +3,11 @@ import MovieApp from "./components/MovieApp/MovieApp";
 import "./App.css";
 
 const App = () => {
-  return <MovieApp />;
+  return (
+    <>
+      <MovieApp />
+    </>
+  );
 };
 
 export default App;
