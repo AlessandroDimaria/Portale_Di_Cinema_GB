@@ -8,15 +8,24 @@ import { useGenre } from "../../context/GenreContext";
 const Navbar = ({ onNavigate, activePage }) => {
   const { query, search } = useSearch();
   const { showNavbarSearch, setShowNavbarSearch } = useUI();
+<<<<<<< HEAD
   const { genreName, selectGenre } = useGenre();
 
   const [showGenres, setShowGenres] = useState(false);
 
+=======
+  const { selectGenre, clearGenre, genreName } = useGenre();
+
+  const [showGenres, setShowGenres] = useState(false);
+
+  // 🔍 chiude barra ricerca
+>>>>>>> develop
   const handleCloseSearch = () => {
     search("");
     setShowNavbarSearch(false);
   };
 
+<<<<<<< HEAD
   const toggleGenres = () => {
     setShowGenres((prev) => !prev);
   };
@@ -30,12 +39,31 @@ const Navbar = ({ onNavigate, activePage }) => {
     search(""); // reset search
     selectGenre(null, ""); // reset genere
     onNavigate("home"); // torna alla homepage
+=======
+  // 🏠 HOME → reset genere + reset ricerca
+  const handleHomeClick = () => {
+    clearGenre();
+    search("");
+    onNavigate("home");
+    setShowGenres(false);
+  };
+
+  // 🎭 selezione genere
+  const handleGenreClick = (id, name) => {
+    selectGenre(id, name);
+    onNavigate("home");
+    setShowGenres(false);
+>>>>>>> develop
   };
 
   return (
     <header className="navbar">
       <div className="navbar-logo">Absolute Cinema</div>
 
+<<<<<<< HEAD
+=======
+      {/* 🔍 SEARCH BAR */}
+>>>>>>> develop
       <div className="navbar-center">
         {showNavbarSearch && (
           <div className="navbar-search-wrapper">
@@ -53,6 +81,10 @@ const Navbar = ({ onNavigate, activePage }) => {
         )}
       </div>
 
+<<<<<<< HEAD
+=======
+      {/* 🔗 NAV LINKS */}
+>>>>>>> develop
       <nav className="navbar-links">
         {/* HOME */}
         <button
@@ -65,13 +97,18 @@ const Navbar = ({ onNavigate, activePage }) => {
         {/* GENRE DROPDOWN */}
         <div className="navbar-dropdown">
           <button
-            onClick={toggleGenres}
+            onClick={() => setShowGenres((prev) => !prev)}
             className={`navbar-link ${
               activePage?.startsWith("genre") ? "active" : ""
             }`}
           >
+<<<<<<< HEAD
             {/* SE C'È UN GENERE → MOSTRA QUEL NOME */}
             {genreName ? genreName.toUpperCase() : "GENRE"} ▾
+=======
+            {/* 👉 SE UN GENERE È SELEZIONATO MOSTRA IL NOME */}
+            {genreName ? `${genreName} ▾` : "GENRE ▾"}
+>>>>>>> develop
           </button>
 
           {showGenres && (
