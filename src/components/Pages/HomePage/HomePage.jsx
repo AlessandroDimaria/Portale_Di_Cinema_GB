@@ -17,7 +17,7 @@ const HomePage = ({ onSelectMovie }) => {
   const [trailerKey, setTrailerKey] = useState(null);
   const [trailerBackdrop, setTrailerBackdrop] = useState(null);
 
-  const fetchedOnce = useRef(false); // 🔥 PREVIENE DOPPIA CHIAMATA
+  const fetchedOnce = useRef(false);
 
   useEffect(() => {
     if (fetchedOnce.current) return; // evita la doppia fetch da StrictMode

@@ -1,5 +1,3 @@
-// src/components/MovieCarouselTest/MovieCarouselTest.jsx
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
