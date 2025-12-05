@@ -35,7 +35,8 @@ const MovieCarouselTest = ({
     <SwiperSlide key={movie.id}>
       <MovieCardTest
         movie={movie}
-        onClick={() => onSelectMovie(movie.id)}
+        onShowTrailer={onSelectTrailer}
+        onShowDetails={onSelectMovie}
       />
     </SwiperSlide>
   ))}
@@ -45,3 +46,4 @@ const MovieCarouselTest = ({
 };
 
 export default MovieCarouselTest;
+
