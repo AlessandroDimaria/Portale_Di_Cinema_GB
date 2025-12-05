@@ -1,4 +1,3 @@
-/* Responsive Swiper & Movie Cards */
 /* Tablet grande / Laptop */
 @media (max-width: 1200px) {
   .movie-card {
@@ -37,21 +36,16 @@
   }
 }
 
-/* Mobile piccolo */
+/* Mobile: card fluide */
 @media (max-width: 576px) {
-  .movie-card {
-    width: 120px;
-    height: 180px;
-  }
   .swiper-slide {
-    margin-right: 10px !important;
+    width: 46vw; /* ~2 card visibili */
   }
-  .swiper-wrapper {
-    padding-right: 10px !important;
-  }
-  /* Su mobile spesso si nascondono le frecce */
   .swiper-button-prev,
   .swiper-button-next {
-    display: none;
+    width: 34px;
+    height: 34px;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex; /* mantieni visibili */
   }
 }
