@@ -102,17 +102,17 @@ body {
 
 /* Spazi tra card */
 .swiper-slide {
-  margin-right: 24px !important;
+  margin-right: 40px !important;
 }
 
 .swiper-wrapper {
   padding-right: 40px !important;
 }
 
-/* MOVIE CARD - landscape Netflix premium */
+
 .movie-card {
-  width: 280px;
-  height: 160px;
+  width: 200px;
+  height: 300px;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -121,7 +121,7 @@ body {
 }
 
 .movie-card:hover {
-  transform: scale(1.28);
+  transform: scale(1.1);
   z-index: 30;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
 }
@@ -237,4 +237,17 @@ body {
 
 .highlight {
   color: #e50914;
+}
+
+/* LAYOUT PAGINA CON SIDEBAR */
+.page-layout {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 80px); /* sotto navbar */
+}
+
+.page-main {
+  flex: 1;
+  padding: 30px 40px;
+  overflow-y: auto;
 }
