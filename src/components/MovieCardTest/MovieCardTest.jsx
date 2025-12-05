@@ -1,5 +1,3 @@
-// src/components/MovieCardTest/MovieCardTest.jsx
-
 const MovieCardTest = ({ movie, onClick }) => {
   const img = movie.poster_path
     ? import.meta.env.VITE_IMAGE_BASE_URL + movie.poster_path
