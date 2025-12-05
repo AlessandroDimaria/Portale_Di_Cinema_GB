@@ -59,7 +59,7 @@ Un utente appassionato di cinema che vuole cercare, vedere dettagli e salvare fi
 
 - **React** (Hooks, State Management)
 - **TheMovieDB API**
-- **CSS Modules / Tailwind** (a scelta per lo styling)
+- **CSS Modules** (a scelta per lo styling)
 - **localStorage** (persistenza dei preferiti)
 - **Swiper.js** (per il carosello interattivo)
 
