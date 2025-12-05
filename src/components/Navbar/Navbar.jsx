@@ -1,7 +1,7 @@
 import { useSearch } from "../../context/SearchContext";
 import { useUI } from "../../context/UIContext";
 
-const Navbar = ({ onNavigate }) => {
+const Navbar = ({ onNavigate, activePage }) => {
   const { query, search } = useSearch();
   const { showNavbarSearch, setShowNavbarSearch } = useUI();
 
@@ -32,10 +32,24 @@ const Navbar = ({ onNavigate }) => {
       </div>
 
       <nav className="navbar-links">
-        <button onClick={() => onNavigate("home")} className="navbar-link">
+        <button
+          onClick={() => onNavigate("home")}
+          className={`navbar-link ${activePage === "home" ? "active" : ""}`}
+        >
           HOME
         </button>
-        <button onClick={() => onNavigate("favorites")} className="navbar-link">
+        <button
+          onClick={() => onNavigate("genre")}
+          className={`navbar-link ${activePage === "genre" ? "active" : ""}`}
+        >
+          GENRE
+        </button>
+        <button
+          onClick={() => onNavigate("favorites")}
+          className={`navbar-link ${
+            activePage === "favorites" ? "active" : ""
+          }`}
+        >
           FAVORITES
         </button>
       </nav>

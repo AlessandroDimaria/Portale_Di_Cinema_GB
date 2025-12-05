@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
 }
 
-/* NAVBAR */ 
+/* NAVBAR */
 /* NAVBAR BASE */
 .navbar {
   display: flex;
@@ -37,9 +37,9 @@ body {
 
 /* Centro: area che conterrà la search */
 .navbar-center {
-  flex: 1;                      /* prende spazio centrale */
+  flex: 1; /* prende spazio centrale */
   display: flex;
-  justify-content: center;      /* centra orizzontalmente */
+  justify-content: center; /* centra orizzontalmente */
 }
 
 /* Link a destra */
@@ -58,10 +58,10 @@ body {
   transition: 0.2s;
 }
 
-.navbar-link:hover,
-.navbar-link--active {
-  color: white;
+.navbar-link.active {
+  border-bottom: 2px solid red; /* sottolineatura */
   font-weight: bold;
+  color: white;
 }
 
 /* SEARCH COMPATTA AL CENTRO */
@@ -147,7 +147,6 @@ body {
 .swiper-wrapper {
   padding-right: 40px !important;
 }
-
 
 .movie-card {
   width: 200px;
