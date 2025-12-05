@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSearch } from "../../context/SearchContext";
 import { useUI } from "../../context/UIContext";
 
@@ -5,9 +6,20 @@ const Navbar = ({ onNavigate, activePage }) => {
   const { query, search } = useSearch();
   const { showNavbarSearch, setShowNavbarSearch } = useUI();
 
+  const [showGenres, setShowGenres] = useState(false);
+
   const handleCloseSearch = () => {
-    search(""); // 🔹 svuota il campo di ricerca
-    setShowNavbarSearch(false); // 🔹 chiude l’input nella navbar
+    search("");
+    setShowNavbarSearch(false);
+  };
+
+  const toggleGenres = () => {
+    setShowGenres((prev) => !prev);
+  };
+
+  const handleGenreClick = (genre) => {
+    onNavigate(`genre-${genre}`);
+    setShowGenres(false);
   };
 
   return (
@@ -38,12 +50,30 @@ const Navbar = ({ onNavigate, activePage }) => {
         >
           HOME
         </button>
-        <button
-          onClick={() => onNavigate("genre")}
-          className={`navbar-link ${activePage === "genre" ? "active" : ""}`}
-        >
-          GENRE
-        </button>
+
+        <div className="navbar-dropdown">
+          <button
+            onClick={toggleGenres}
+            className={`navbar-link ${
+              activePage?.startsWith("genre") ? "active" : ""
+            }`}
+          >
+            GENRE ▾
+          </button>
+
+          {showGenres && (
+            <div className="navbar-dropdown-menu">
+              <button onClick={() => handleGenreClick("action")}>Action</button>
+              <button onClick={() => handleGenreClick("comedy")}>Comedy</button>
+              <button onClick={() => handleGenreClick("drama")}>Drama</button>
+              <button onClick={() => handleGenreClick("fantasy")}>
+                Fantasy
+              </button>
+              <button onClick={() => handleGenreClick("horror")}>Horror</button>
+            </div>
+          )}
+        </div>
+
         <button
           onClick={() => onNavigate("favorites")}
           className={`navbar-link ${
