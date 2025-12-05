@@ -63,4 +63,18 @@ export const apiService = {
     const data = await request(url);
     return data;
   },
+
+  getMoviesByGenre: async (genreId) => {
+    const url = `${import.meta.env.VITE_BASE_URL}/discover/movie?api_key=${
+      import.meta.env.VITE_API_KEY
+    }&with_genres=${genreId}`;
+    return await request(url);
+  },
+
+  getMoviesByGenre: async (genreId) => {
+    const url = `${import.meta.env.VITE_BASE_URL}/discover/movie?api_key=${
+      import.meta.env.VITE_API_KEY
+    }&with_genres=${genreId}`;
+    return await request(url);
+  },
 };
