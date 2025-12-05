@@ -22,6 +22,14 @@ export const apiService = {
     const data = await request(url);
     return data;
   },
+  
+getTrailer: async (id) => {
+  const url = `${import.meta.env.VITE_BASE_URL}/movie/${id}/videos?api_key=${
+    import.meta.env.VITE_API_KEY
+  }`;
+  const data = await request(url);
+  return data;
+},
 
   getTopRated: async () => {
     const url = `${import.meta.env.VITE_BASE_URL}/movie/top_rated?api_key=${
