@@ -64,6 +64,38 @@ body {
   color: white;
 }
 
+.navbar-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #222;
+  border: 1px solid #444;
+  padding: 8px 0;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.navbar-dropdown-menu button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: left;
+  cursor: pointer;
+  width: 150px;
+}
+
+.navbar-dropdown-menu button:hover {
+  background: #333;
+}
+
 /* SEARCH COMPATTA AL CENTRO */
 .navbar-search-wrapper {
   display: flex;

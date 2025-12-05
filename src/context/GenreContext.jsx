@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { apiService } from "../services/apiService";
+import { apiService } from "../api/apiService";
 
 const GenreContext = createContext();
 
@@ -21,9 +21,15 @@ export const GenreProvider = ({ children }) => {
     setGenreResults(data.results);
   };
 
+  const clearGenre = () => {
+    setGenreId(null);
+    setGenreName("");
+    setGenreResults(null);
+  };
+
   return (
     <GenreContext.Provider
-      value={{ genreId, genreName, genreResults, selectGenre }}
+      value={{ genreId, genreName, genreResults, selectGenre, clearGenre }}
     >
       {children}
     </GenreContext.Provider>
