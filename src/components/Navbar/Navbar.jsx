@@ -6,40 +6,36 @@ import { useGenre } from "../../context/GenreContext";
 const Navbar = ({ onNavigate, activePage }) => {
   const { query, search } = useSearch();
   const { showNavbarSearch, setShowNavbarSearch } = useUI();
-  const { selectGenre, clearGenre } = useGenre();
+  const { selectGenre, clearGenre, genreName } = useGenre();
 
   const [showGenres, setShowGenres] = useState(false);
 
-  // 🔍 Chiudi barra ricerca
+  // 🔍 chiude barra ricerca
   const handleCloseSearch = () => {
     search("");
     setShowNavbarSearch(false);
   };
 
-  // 🏠 HOME → reset genere + vai alla home
+  // 🏠 HOME → reset genere + reset ricerca
   const handleHomeClick = () => {
     clearGenre();
-    search(""); // reset anche la search
+    search("");
     onNavigate("home");
     setShowGenres(false);
   };
 
-  // 🎭 Selezione Genere → fetch + vai Home
+  // 🎭 selezione genere
   const handleGenreClick = (id, name) => {
     selectGenre(id, name);
     onNavigate("home");
     setShowGenres(false);
   };
 
-  const toggleGenres = () => {
-    setShowGenres((prev) => !prev);
-  };
-
   return (
     <header className="navbar">
       <div className="navbar-logo">Absolute Cinema</div>
 
-      {/* 🔍 Barra di ricerca centrale */}
+      {/* 🔍 SEARCH BAR */}
       <div className="navbar-center">
         {showNavbarSearch && (
           <div className="navbar-search-wrapper">
@@ -57,7 +53,7 @@ const Navbar = ({ onNavigate, activePage }) => {
         )}
       </div>
 
-      {/* 🔗 Link di navigazione */}
+      {/* 🔗 NAV LINKS */}
       <nav className="navbar-links">
         {/* HOME */}
         <button
@@ -70,12 +66,13 @@ const Navbar = ({ onNavigate, activePage }) => {
         {/* GENRE DROPDOWN */}
         <div className="navbar-dropdown">
           <button
-            onClick={toggleGenres}
+            onClick={() => setShowGenres((prev) => !prev)}
             className={`navbar-link ${
               activePage?.startsWith("genre") ? "active" : ""
             }`}
           >
-            GENRE ▾
+            {/* 👉 SE UN GENERE È SELEZIONATO MOSTRA IL NOME */}
+            {genreName ? `${genreName} ▾` : "GENRE ▾"}
           </button>
 
           {showGenres && (
