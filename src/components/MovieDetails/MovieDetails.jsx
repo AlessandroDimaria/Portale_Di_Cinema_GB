@@ -25,9 +25,7 @@ const MovieDetails = ({ movie, onBack }) => {
           }
           onClick={() => toggleFavorite(movie)}
         >
-          {isFavorite(movie.id)
-            ? "Rimuovi dai preferiti"
-            : "Aggiungi ai preferiti"}
+          {isFavorite(movie.id) ? "⭐" : "☆"}
         </button>
 
         <p className="details-meta">

@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
 }
 
-/* NAVBAR */ 
+/* NAVBAR */
 /* NAVBAR BASE */
 .navbar {
   display: flex;
@@ -37,9 +37,9 @@ body {
 
 /* Centro: area che conterrà la search */
 .navbar-center {
-  flex: 1;                      /* prende spazio centrale */
+  flex: 1; /* prende spazio centrale */
   display: flex;
-  justify-content: center;      /* centra orizzontalmente */
+  justify-content: center; /* centra orizzontalmente */
 }
 
 /* Link a destra */
@@ -58,10 +58,42 @@ body {
   transition: 0.2s;
 }
 
-.navbar-link:hover,
-.navbar-link--active {
-  color: white;
+.navbar-link.active {
+  border-bottom: 2px solid red; /* sottolineatura */
   font-weight: bold;
+  color: white;
+}
+
+.navbar-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #222;
+  border: 1px solid #444;
+  padding: 8px 0;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.navbar-dropdown-menu button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: left;
+  cursor: pointer;
+  width: 150px;
+}
+
+.navbar-dropdown-menu button:hover {
+  background: #333;
 }
 
 /* SEARCH COMPATTA AL CENTRO */
@@ -147,7 +179,6 @@ body {
 .swiper-wrapper {
   padding-right: 40px !important;
 }
-
 
 .movie-card {
   width: 200px;
