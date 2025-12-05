@@ -1,0 +1,56 @@
+/* Modal overlay */
+.trailer-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Backdrop del film */
+.trailer-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(15px);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+/* Box del video */
+.trailer-modal-content {
+  position: relative;
+  width: 70%;
+  max-width: 900px;
+  border-radius: 8px;
+}
+
+/* Iframe del trailer */
+.trailer-iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Bottone chiudi */
+.trailer-close-btn {
+  position: absolute;
+  top: -40px;
+  right: -10px;
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

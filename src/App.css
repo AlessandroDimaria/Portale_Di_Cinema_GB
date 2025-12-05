@@ -202,6 +202,25 @@ body {
   object-fit: cover;
 }
 
+.movie-card-wrapper {
+  width: 200px;
+  cursor: pointer;
+}
+
+.movie-card-title {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+}
+
+.movie-card-title:hover {
+  color: #e50914;
+}
+
+
 /* SEARCH */
 .search-bar {
   display: flex;

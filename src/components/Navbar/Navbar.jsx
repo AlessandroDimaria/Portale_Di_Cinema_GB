@@ -1,3 +1,5 @@
+// src/components/Navbar/Navbar.jsx
+
 import { useState } from "react";
 import { useSearch } from "../../context/SearchContext";
 import { useUI } from "../../context/UIContext";
@@ -6,40 +8,34 @@ import { useGenre } from "../../context/GenreContext";
 const Navbar = ({ onNavigate, activePage }) => {
   const { query, search } = useSearch();
   const { showNavbarSearch, setShowNavbarSearch } = useUI();
-  const { selectGenre, clearGenre } = useGenre();
+  const { genreName, selectGenre } = useGenre();
 
   const [showGenres, setShowGenres] = useState(false);
 
-  // 🔍 Chiudi barra ricerca
   const handleCloseSearch = () => {
     search("");
     setShowNavbarSearch(false);
-  };
-
-  // 🏠 HOME → reset genere + vai alla home
-  const handleHomeClick = () => {
-    clearGenre();
-    search(""); // reset anche la search
-    onNavigate("home");
-    setShowGenres(false);
-  };
-
-  // 🎭 Selezione Genere → fetch + vai Home
-  const handleGenreClick = (id, name) => {
-    selectGenre(id, name);
-    onNavigate("home");
-    setShowGenres(false);
   };
 
   const toggleGenres = () => {
     setShowGenres((prev) => !prev);
   };
 
+  const handleGenreClick = (id, name) => {
+    selectGenre(id, name); // salva ID e nome
+    setShowGenres(false);
+  };
+
+  const handleHomeClick = () => {
+    search(""); // reset search
+    selectGenre(null, ""); // reset genere
+    onNavigate("home"); // torna alla homepage
+  };
+
   return (
     <header className="navbar">
       <div className="navbar-logo">Absolute Cinema</div>
 
-      {/* 🔍 Barra di ricerca centrale */}
       <div className="navbar-center">
         {showNavbarSearch && (
           <div className="navbar-search-wrapper">
@@ -57,7 +53,6 @@ const Navbar = ({ onNavigate, activePage }) => {
         )}
       </div>
 
-      {/* 🔗 Link di navigazione */}
       <nav className="navbar-links">
         {/* HOME */}
         <button
@@ -75,7 +70,8 @@ const Navbar = ({ onNavigate, activePage }) => {
               activePage?.startsWith("genre") ? "active" : ""
             }`}
           >
-            GENRE ▾
+            {/* SE C'È UN GENERE → MOSTRA QUEL NOME */}
+            {genreName ? genreName.toUpperCase() : "GENRE"} ▾
           </button>
 
           {showGenres && (
