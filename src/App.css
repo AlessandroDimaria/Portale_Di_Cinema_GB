@@ -321,3 +321,61 @@ body {
   padding: 30px 40px;
   overflow-y: auto;
 }
+/* Responsive Swiper & Movie Cards */
+
+/* Tablet grande / Laptop */
+@media (max-width: 1200px) {
+  .movie-card {
+    width: 180px;
+    height: 270px;
+  }
+  .swiper-slide {
+    margin-right: 30px !important;
+  }
+}
+
+/* Tablet medio */
+@media (max-width: 992px) {
+  .movie-card {
+    width: 160px;
+    height: 240px;
+  }
+  .swiper-slide {
+    margin-right: 20px !important;
+  }
+}
+
+/* Tablet piccolo / Mobile grande */
+@media (max-width: 768px) {
+  .movie-card {
+    width: 140px;
+    height: 210px;
+  }
+  .swiper-slide {
+    margin-right: 15px !important;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Mobile piccolo */
+@media (max-width: 576px) {
+  .movie-card {
+    width: 120px;
+    height: 180px;
+  }
+  .swiper-slide {
+    margin-right: 10px !important;
+  }
+  .swiper-wrapper {
+    padding-right: 10px !important;
+  }
+  /* Su mobile spesso si nascondono le frecce */
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+}
