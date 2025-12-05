@@ -1,8 +1,8 @@
-import { useState } from "react";
 import "./Sidebar.css";
+import { useUI } from "../../context/UIContext";
 
 export default function Sidebar() {
-  const [showSearch, setShowSearch] = useState(false);
+  const { setShowNavbarSearch } = useUI();
 
   return (
     <aside className="sidebar">
@@ -14,25 +14,13 @@ export default function Sidebar() {
           📂
         </li>
 
-        <li className="sidebar-item sidebar-search-wrapper">
+        <li className="sidebar-item" title="Cerca">
           <button
             className="sidebar-search-btn"
-            onClick={() => setShowSearch(!showSearch)}
-            title="Cerca"
+            onClick={() => setShowNavbarSearch(true)}
           >
             🔍
           </button>
-
-          {showSearch && (
-            <div className="sidebar-search-dropdown">
-              <input
-                type="text"
-                placeholder="Cerca un film..."
-                className="sidebar-search-input"
-              />
-              <button className="sidebar-search-submit">Cerca</button>
-            </div>
-          )}
         </li>
       </ul>
     </aside>

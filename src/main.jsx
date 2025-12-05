@@ -5,13 +5,16 @@ import App from "./App.jsx";
 import { MoviesProvider } from "./context/MoviesContext.jsx";
 import { SearchProvider } from "./context/SearchContext.jsx";
 import { FavoritesProvider } from "./context/FavoritesContext.jsx";
+import { UIProvider } from "./context/UIContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <SearchProvider>
-      <FavoritesProvider>
-        <App />
-      </FavoritesProvider>
-    </SearchProvider>
+    <UIProvider>
+      <SearchProvider>
+        <FavoritesProvider>
+          <App />
+        </FavoritesProvider>
+      </SearchProvider>
+    </UIProvider>
   </StrictMode>
 );
