@@ -1,31 +1,45 @@
 import { useState } from "react";
 import { useSearch } from "../../context/SearchContext";
 import { useUI } from "../../context/UIContext";
+import { useGenre } from "../../context/GenreContext";
 
 const Navbar = ({ onNavigate, activePage }) => {
   const { query, search } = useSearch();
   const { showNavbarSearch, setShowNavbarSearch } = useUI();
+  const { selectGenre, clearGenre } = useGenre();
 
   const [showGenres, setShowGenres] = useState(false);
 
+  // 🔍 Chiudi barra ricerca
   const handleCloseSearch = () => {
     search("");
     setShowNavbarSearch(false);
+  };
+
+  // 🏠 HOME → reset genere + vai alla home
+  const handleHomeClick = () => {
+    clearGenre();
+    search(""); // reset anche la search
+    onNavigate("home");
+    setShowGenres(false);
+  };
+
+  // 🎭 Selezione Genere → fetch + vai Home
+  const handleGenreClick = (id, name) => {
+    selectGenre(id, name);
+    onNavigate("home");
+    setShowGenres(false);
   };
 
   const toggleGenres = () => {
     setShowGenres((prev) => !prev);
   };
 
-  const handleGenreClick = (genre) => {
-    onNavigate(`genre-${genre}`);
-    setShowGenres(false);
-  };
-
   return (
     <header className="navbar">
       <div className="navbar-logo">Absolute Cinema</div>
 
+      {/* 🔍 Barra di ricerca centrale */}
       <div className="navbar-center">
         {showNavbarSearch && (
           <div className="navbar-search-wrapper">
@@ -43,14 +57,17 @@ const Navbar = ({ onNavigate, activePage }) => {
         )}
       </div>
 
+      {/* 🔗 Link di navigazione */}
       <nav className="navbar-links">
+        {/* HOME */}
         <button
-          onClick={() => onNavigate("home")}
+          onClick={handleHomeClick}
           className={`navbar-link ${activePage === "home" ? "active" : ""}`}
         >
           HOME
         </button>
 
+        {/* GENRE DROPDOWN */}
         <div className="navbar-dropdown">
           <button
             onClick={toggleGenres}
@@ -63,17 +80,26 @@ const Navbar = ({ onNavigate, activePage }) => {
 
           {showGenres && (
             <div className="navbar-dropdown-menu">
-              <button onClick={() => handleGenreClick("action")}>Action</button>
-              <button onClick={() => handleGenreClick("comedy")}>Comedy</button>
-              <button onClick={() => handleGenreClick("drama")}>Drama</button>
-              <button onClick={() => handleGenreClick("fantasy")}>
+              <button onClick={() => handleGenreClick(28, "Action")}>
+                Action
+              </button>
+              <button onClick={() => handleGenreClick(35, "Comedy")}>
+                Comedy
+              </button>
+              <button onClick={() => handleGenreClick(18, "Drama")}>
+                Drama
+              </button>
+              <button onClick={() => handleGenreClick(14, "Fantasy")}>
                 Fantasy
               </button>
-              <button onClick={() => handleGenreClick("horror")}>Horror</button>
+              <button onClick={() => handleGenreClick(27, "Horror")}>
+                Horror
+              </button>
             </div>
           )}
         </div>
 
+        {/* FAVORITES */}
         <button
           onClick={() => onNavigate("favorites")}
           className={`navbar-link ${
