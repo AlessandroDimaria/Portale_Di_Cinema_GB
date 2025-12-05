@@ -9,7 +9,6 @@ export default function MovieTrailerModal({ trailerKey, backdrop, onClose }) {
 
   return (
     <div className="trailer-modal-overlay" onClick={onClose}>
-      {/* Sfondo sfocato */}
       {backdropURL && (
         <div
           className="trailer-modal-backdrop"

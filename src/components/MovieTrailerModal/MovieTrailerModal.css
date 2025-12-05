@@ -1,4 +1,3 @@
-/* Modal overlay */
 .trailer-modal-overlay {
   position: fixed;
   top: 0;
@@ -13,7 +12,6 @@
   z-index: 999;
 }
 
-/* Backdrop del film */
 .trailer-modal-backdrop {
   position: absolute;
   top: 0;
@@ -27,7 +25,6 @@
   z-index: -1;
 }
 
-/* Box del video */
 .trailer-modal-content {
   position: relative;
   width: 70%;
@@ -35,7 +32,6 @@
   border-radius: 8px;
 }
 
-/* Iframe del trailer */
 .trailer-iframe {
   width: 100%;
   height: 500px;
@@ -43,7 +39,6 @@
   border-radius: 8px;
 }
 
-/* Bottone chiudi */
 .trailer-close-btn {
   position: absolute;
   top: -40px;
